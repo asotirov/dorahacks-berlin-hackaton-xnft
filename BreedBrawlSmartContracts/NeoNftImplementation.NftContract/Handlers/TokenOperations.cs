@@ -74,39 +74,32 @@ namespace NeoNftImplementation.NftContract.Handlers
             }
             else if (operation == "mintToken")
             {
-                if (args.Length != 6)
+                if (args.Length != 10)
                 {
                     result.Value = 0;
                     return result;
                 }
 
-                byte[] owner = (byte[])args[0];
-                byte strength = (byte)args[1];
-                byte power = (byte)args[2];
-                byte agile = (byte)args[3];
-                byte speed = (byte)args[4];
-                BigInteger generation = (int)args[5];
+                byte[] tokenOwner = (byte[])args[0];
+                byte health = (byte)args[1];
+                byte mana = (byte)args[2];
+                byte agility = (byte)args[3];
+                byte stamina = (byte)args[4];
+                byte criticalStrike = (byte)args[5];
+                byte attackSpeed = (byte)args[6];
+                byte versatility = (byte)args[7];
+                byte mastery = (byte)args[8];
+                BigInteger level = (byte)args[9];
 
-                result.Value = MintToken(owner, strength, power, agile, speed, generation);
+                result.Value = MintToken(tokenOwner, health, mana, agility, stamina,
+                    criticalStrike,attackSpeed,versatility,mastery,level);
             }
             else if (operation == "approve")
             {
                 byte[] approvedAddress = (byte[])args[0];
                 BigInteger tokenId = (BigInteger)args[1];
-                BigInteger duration = 0;
-                if (args.Length == 3)
-                    duration = (BigInteger)args[2];
 
-                result.Value = Approve(approvedAddress, tokenId, duration);
-            }
-
-            else if (operation == "approveDuration")
-            {
-                byte[] approvedAddress = (byte[])args[0];
-                BigInteger tokenId = (BigInteger)args[1];
-                BigInteger duration = (BigInteger)args[2];
-
-                result.Value = Approve(approvedAddress, tokenId, duration);
+                result.Value = Approve(approvedAddress, tokenId);
             }
 
             else if (operation == "transferFrom_app")
@@ -189,7 +182,7 @@ namespace NeoNftImplementation.NftContract.Handlers
         /// Get the auction house address
         /// </summary>
         private static byte[] GetMarketAddress() => DataAccess.GetMarketAddressAsBytes();
-
+        
         /// <summary>
         /// After authorizing, transfer the author's gladiator assets to others
         /// </summary>
@@ -232,14 +225,6 @@ namespace NeoNftImplementation.NftContract.Handlers
                 return false;
             }
 
-            if (token.ApprovalExpiration != 0 && token.ApprovalExpiration < Blockchain.GetHeader(Blockchain.GetHeight()).Timestamp)
-            {
-                token.ApprovalExpiration = 0;
-                DataAccess.SetToken(tokenId.AsByteArray(), token);
-                DataAccess.RemoveApproval(tokenId.AsByteArray());
-                return false;
-            }
-
             if (Runtime.CheckWitness(approvedAddress))
             {
                 token.Owner = to;
@@ -274,8 +259,7 @@ namespace NeoNftImplementation.NftContract.Handlers
         /// <summary>
         /// Authorize someone to operate one of their own gladiators
         /// </summary>
-        /// 
-        private static bool Approve(byte[] approvedAddress, BigInteger tokenId, BigInteger duration)
+        private static bool Approve(byte[] approvedAddress, BigInteger tokenId)
         {
             if (approvedAddress.Length != 20)
             {
@@ -294,7 +278,7 @@ namespace NeoNftImplementation.NftContract.Handlers
             {
                 // only one third-party spender can be approved
                 // at any given time for a specific token
-                DataAccess.SetApprovedAddress(tokenId.AsByteArray(), approvedAddress, duration);
+                DataAccess.SetApprovedAddress(tokenId.AsByteArray(), approvedAddress);
 
                 Events.RaiseApproved(token.Owner, approvedAddress, tokenId);
 
@@ -310,7 +294,9 @@ namespace NeoNftImplementation.NftContract.Handlers
         /// Release Promotion Gladiator
         /// </summary>
         private static BigInteger MintToken(
-            byte[] tokenOwner, byte strength, byte power, byte agile, byte speed, BigInteger generation) =>
-                NepOperations.CreateToken(tokenOwner, strength, power, agile, speed, generation);        
+            byte[] owner, byte health, byte mana, byte agility,
+            byte stamina, byte criticalStrike, byte attackSpeed, byte versatility, byte mastery, BigInteger level) =>
+                NepOperations.CreateToken(owner, health,  mana,  agility,
+                    stamina,  criticalStrike,  attackSpeed,  versatility,  mastery, level);        
     }
 }

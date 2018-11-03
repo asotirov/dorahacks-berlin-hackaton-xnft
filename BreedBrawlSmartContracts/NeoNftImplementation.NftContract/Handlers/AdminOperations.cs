@@ -134,20 +134,14 @@ namespace NeoNftImplementation.NftContract.Handlers
             if (Runtime.CheckWitness(ContractMain.MintOwner))
             {
                 var token = DataAccess.GetToken(id.AsByteArray());
-
                 if (token == null)
                 {
                     return false;
                 }
 
-                if (token.ApprovalExpiration < Blockchain.GetHeader(Blockchain.GetHeight()).Timestamp)
-                {
-
-                }
-
                 token.CloneWithId = 0;
                 token.CanBreedAfter = 0;
-                token.IsPregnant = 0;
+                token.IsBreeding = 0;
 
                 DataAccess.SetToken(id.AsByteArray(), token);
 
