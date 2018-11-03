@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using NeoNftProject.Data;
 using NeoNftProject.Models;
+using Newtonsoft.Json;
 
 namespace NeoNftProject.Services
 {
@@ -146,7 +149,41 @@ namespace NeoNftProject.Services
 			return tokens;
 		}
 
-		public Auction UpdateAuction(UpdateAuctionModel model)
+        public async Task<int> SearchBreedPartner()
+        {
+            using (var client = new HttpClient())
+            {
+                var values = new Dictionary<string, string>
+                {
+                   { "content", "SilentSlap is looking for a partner to breed. Come and create new generations with him! https://breedandbrawlgame.com/" }
+                };
+
+                var content = new FormUrlEncodedContent(values);
+
+                var response = await client.PostAsync("https://discordapp.com/api/webhooks/508308351151505419/hdZ29UVDYFQoai7rwnNaAoDioa9YEfqAeTKH7AiitOhPIHIsQ6SH7U-1XD8waKXmgOqJ", content);
+            }
+
+            return 0;
+        }
+
+        public async Task<int> SearchFightPartner()
+        {
+            using (var client = new HttpClient())
+            {
+                var values = new Dictionary<string, string>
+                {
+                   { "content", "SilentSlap is looking for a fight. Come and fight him! https://breedandbrawlgame.com/ " }
+                };
+
+                var content = new FormUrlEncodedContent(values);
+
+                var response = await client.PostAsync("https://discordapp.com/api/webhooks/508270591720161283/9FH2sX0vxmlRj6j3KI1dC3PD3m9nZL3PNkHwygJ56MLfAJkzV7GOb-BrbgSyMPx2O7sC", content);
+            }
+
+            return 0;
+        }
+
+        public Auction UpdateAuction(UpdateAuctionModel model)
 		{
 			var auction = db.Auctions.FirstOrDefault(c => c.Id == model.AuctionId);
 

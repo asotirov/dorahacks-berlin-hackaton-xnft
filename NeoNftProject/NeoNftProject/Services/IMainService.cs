@@ -17,5 +17,7 @@ namespace NeoNftProject.Services
 		int CreateToken(CreateTokenInputModel token);
 		int CreateAddress(string address);
 		int CreateTransaction(CreateTransactionInputModel model);
+        Task<int> SearchFightPartner();
+        Task<int> SearchBreedPartner();
 	}
 }

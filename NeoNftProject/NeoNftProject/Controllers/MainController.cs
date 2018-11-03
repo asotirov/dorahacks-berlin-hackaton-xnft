@@ -107,7 +107,30 @@ namespace NeoNftProject.Controllers
 			return this.Ok(id);
 		}
 
-		[HttpGet("height")]
+        [HttpPost("fight/lookup")]
+        public IActionResult FightLookup()
+        {
+            // TODO: Get the current user and send it
+            var id = this.mainService.SearchFightPartner();
+
+            return this.Ok(); 
+        }
+
+        [HttpPost("breed/lookup")]
+        public IActionResult BreedLookup()
+        {
+            // TODO: Get the current user and send it
+            var status = this.mainService.SearchBreedPartner();
+
+            //if (status == 0)
+            //{
+            //    return this.BadRequest("Invalid request.");
+            //}
+
+            return this.Ok();
+        }
+
+        [HttpGet("height")]
 		public IActionResult Height()
 		{
 			return this.Ok(Blockchain.Singleton.HeaderHeight);
