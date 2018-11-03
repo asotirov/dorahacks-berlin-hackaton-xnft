@@ -193,6 +193,60 @@ Response
 id of the transaction
 1
 
+POST http://localhost:5001/api/breed
+
+Body:
+{
+	
+	"player1":1002,
+	
+	"player2":1003
+
+}
+
+Response // new token
+{
+    "id": 1006,
+    "nickname": null,
+    "txId": null,
+    "health": 56658,
+    "mana": 10642,
+    "agility": 61436,
+    "stamina": 150,
+    "criticalStrike": 10529,
+    "attackSpeed": 18302,
+    "mastery": 48722,
+    "versatility": 35131,
+    "imageUrl": null,
+    "addressId": 2,
+    "experience": 0,
+    "level": 0,
+    "isBreeding": false,
+    "isBrawling": false,
+    "address": null,
+    "auctions": []
+}
+
+POST http://localhost:5001/api/breed
+
+Body:
+{
+	
+	"player1":1002,
+	
+	"player2":1003
+
+}
+
+Response
+
+{
+	[
+	"Player 1 attacks for 100000."
+	"Player 1 wins."
+	]
+}
+
 GET height // get the latest block of the network (used to test if you are connected to the private network)
 2014
 

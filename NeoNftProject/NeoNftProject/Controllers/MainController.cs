@@ -79,7 +79,23 @@ namespace NeoNftProject.Controllers
 			return this.Ok(id);
 		}
 
-		[HttpPatch("token")]
+        [HttpPost("battle")]
+        public IActionResult Battle([FromBody]BattleInputModel model)
+        {
+            var moves = this.mainService.Battle(model);
+
+            return this.Ok(moves);
+        }
+
+        [HttpPost("breed")]
+        public IActionResult Breed([FromBody]BreedInputModel model)
+        {
+            var moves = this.mainService.Breed(model);
+
+            return this.Ok(moves);
+        }
+
+        [HttpPatch("token")]
 		public IActionResult UpdateToken([FromBody]UpdateTokenInputModel model)
 		{
 			var token = this.mainService.UpdateToken(model);

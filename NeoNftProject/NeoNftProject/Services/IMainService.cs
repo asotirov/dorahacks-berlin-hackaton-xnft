@@ -19,5 +19,7 @@ namespace NeoNftProject.Services
 		int CreateTransaction(CreateTransactionInputModel model);
         Task<int> SearchFightPartner();
         Task<int> SearchBreedPartner();
-	}
+        string[] Battle(BattleInputModel model);
+        Token Breed(BreedInputModel model);
+    }
 }

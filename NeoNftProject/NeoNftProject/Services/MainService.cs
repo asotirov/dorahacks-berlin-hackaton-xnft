@@ -19,7 +19,132 @@ namespace NeoNftProject.Services
 			this.db = db;
 		}
 
-		public int CreateAddress(string address)
+        public string[] Battle(BattleInputModel model)
+        {
+            Token firstToken = db.Tokens.FirstOrDefault(c => c.Id == model.Player1);
+            Token secondToken = db.Tokens.FirstOrDefault(c => c.Id == model.Player2);
+            if (firstToken == null || secondToken == null)
+            {
+                return new string[0];
+            }
+
+            string[] moves = Brawl(firstToken, secondToken).ToArray();
+
+            return moves;
+        }
+
+        public List<string> Brawl(Token player1, Token player2)
+        {
+            Random randP1 = new Random(player1.TxId.GetHashCode());
+            Random randP2 = new Random(player2.TxId.GetHashCode());
+            List<string> result = new List<string>();
+
+            while (player1.Health > 0 && player2.Health > 0)
+            {
+                bool CriticalStrikeP1 = randP1.Next(100) > player1.CriticalStrike;
+                int damageP1 = (player1.Agility / 7) * (1 + player1.AttackSpeed / 100) * (1 - player2.Versatility / 100) - randP2.Next(player2.Mastery);
+                damageP1 = CriticalStrikeP1 ? (int)(damageP1 * 1.5) : damageP1;
+
+                bool CriticalStrikeP2 = randP2.Next(100) > player2.CriticalStrike;
+                int damageP2 = (player2.Agility / 7) * (1 + player2.AttackSpeed / 100) * (1 - player1.Versatility / 100) - -(int)randP1.Next(player1.Mastery);
+                damageP2 = CriticalStrikeP2 ? (int)(damageP2 * 1.5) : damageP2;
+
+                result.Add("Player1 attacks for " + damageP1);
+                result.Add("Player2 atacks for " + damageP2);
+
+                player2.Health -= damageP1;
+                result.Add("Player2 Health " + player2.Health);
+
+                //Check if P2 is finished
+                if (player2.Health <= 0)
+                {
+                    result.Add("Player 1 wins.");
+                    return result;
+                }
+
+                player1.Health -= damageP2;
+                result.Add("Player1 Health " + player1.Health);
+            }
+
+            result.Add("Player 2 wins. ");
+            return result;
+        }
+
+        public Token Breed(Token player1, Token player2)
+        {
+            Random randP1 = new Random(player1.TxId.GetHashCode());
+            Random randP2 = new Random(player2.TxId.GetHashCode());
+
+            // New token to add
+            Token token = new Token()
+            {
+                Health = randP1.Next(Math.Min(player1.Health, player2.Health), Math.Max(player1.Health, player2.Health)),
+                Stamina = randP1.Next(Math.Min(player1.Stamina, player2.Stamina), Math.Max(player1.Stamina, player2.Stamina)),
+                Agility = randP1.Next(Math.Min(player1.Agility, player2.Agility), Math.Max(player1.Agility, player2.Agility)),
+                Mana = randP1.Next(Math.Min(player1.Mana, player2.Mana), Math.Max(player1.Mana, player2.Mana)),
+                CriticalStrike = randP1.Next(Math.Min(player1.CriticalStrike, player2.CriticalStrike), Math.Max(player1.CriticalStrike, player2.CriticalStrike)),
+                AttackSpeed = randP1.Next(Math.Min(player1.AttackSpeed, player2.AttackSpeed), Math.Max(player1.AttackSpeed, player2.AttackSpeed)),
+                Mastery = randP1.Next(Math.Min(player1.Mastery, player2.Mastery), Math.Max(player1.Mastery, player2.Mastery)),
+                Versatility = randP1.Next(Math.Min(player1.Versatility, player2.Versatility), Math.Max(player1.Versatility, player2.Versatility))
+            };
+            return token;
+        }
+
+        public Token Mutate(Token player, int maximalChange)
+        {
+            Random randP1 = new Random(player.TxId.GetHashCode());
+
+            int randomIndex = randP1.Next(0, 7);
+            switch (randomIndex)
+            {
+                case 0:
+                    player.Health = randP1.Next(player.Health - maximalChange, player.Health + maximalChange);
+                    break;
+                case 1:
+                    player.Stamina = randP1.Next(player.Stamina - maximalChange, player.Stamina + maximalChange);
+                    break;
+                case 2:
+                    player.Agility = randP1.Next(player.Agility - maximalChange, player.Agility + maximalChange);
+                    break;
+                case 3:
+                    player.Mana = randP1.Next(player.Mana - maximalChange, player.Mana + maximalChange);
+                    break;
+                case 4:
+                    player.CriticalStrike = randP1.Next(player.CriticalStrike - maximalChange, player.CriticalStrike + maximalChange);
+                    break;
+                case 5:
+                    player.AttackSpeed = randP1.Next(player.AttackSpeed - maximalChange, player.AttackSpeed + maximalChange);
+                    break;
+                case 6:
+                    player.Mastery = randP1.Next(player.Mastery - maximalChange, player.Mastery + maximalChange);
+                    break;
+                case 7:
+                    player.Versatility = randP1.Next(player.Versatility - maximalChange, player.Versatility + maximalChange);
+                    break;
+            }
+            return player;
+        }
+
+        public Token Breed(BreedInputModel model)
+        {
+            Token firstToken = db.Tokens.FirstOrDefault(c => c.Id == model.Player1);
+            Token secondToken = db.Tokens.FirstOrDefault(c => c.Id == model.Player2);
+
+            if (firstToken == null || secondToken == null)
+            {
+                return null;
+            }
+
+            Token newToken = this.Breed(firstToken, secondToken);
+            newToken.AddressId = firstToken.AddressId;
+
+            db.Add(newToken);
+            db.SaveChanges();
+
+            return newToken;
+        }
+
+        public int CreateAddress(string address)
 		{
 			var addressObj = db.Addresses.FirstOrDefault(c => c.AddressName == address);
 
