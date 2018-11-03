@@ -32,3 +32,37 @@ C:\Users\Bogdan Alov\Desktop\neo\neo-NFT-contracts\NeoNftProject\NeoNftProject\o
 C:\Users\Bogdan Alov\Desktop\neo\neo-NFT-contracts\NeoNftProject\NeoNftProject\obj\Debug\netcoreapp2.1\NeoNftProject.dll
 C:\Users\Bogdan Alov\Desktop\neo\neo-NFT-contracts\NeoNftProject\NeoNftProject\obj\Debug\netcoreapp2.1\NeoNftProject.pdb
 C:\Users\Bogdan Alov\Desktop\neo\neo-NFT-contracts\NeoNftProject\NeoNftProject\obj\Debug\netcoreapp2.1\NeoNftProject.csproj.CopyComplete
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\bin\Debug\netcoreapp2.1\config.json
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\bin\Debug\netcoreapp2.1\protocol.json
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\bin\Debug\netcoreapp2.1\NeoNftProject.deps.json
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\bin\Debug\netcoreapp2.1\NeoNftProject.runtimeconfig.json
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\bin\Debug\netcoreapp2.1\NeoNftProject.runtimeconfig.dev.json
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\bin\Debug\netcoreapp2.1\NeoNftProject.dll
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\bin\Debug\netcoreapp2.1\NeoNftProject.pdb
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\bin\Debug\netcoreapp2.1\NeoNftProject.Views.dll
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\bin\Debug\netcoreapp2.1\NeoNftProject.Views.pdb
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\obj\Debug\netcoreapp2.1\NeoNftProject.csprojAssemblyReference.cache
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\obj\Debug\netcoreapp2.1\NeoNftProject.csproj.CoreCompileInputs.cache
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\obj\Debug\netcoreapp2.1\NeoNftProject.RazorAssemblyInfo.cache
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\obj\Debug\netcoreapp2.1\NeoNftProject.RazorAssemblyInfo.cs
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\obj\Debug\netcoreapp2.1\NeoNftProject.AssemblyInfoInputs.cache
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\obj\Debug\netcoreapp2.1\NeoNftProject.AssemblyInfo.cs
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\obj\Debug\netcoreapp2.1\NeoNftProject.TagHelpers.input.cache
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\obj\Debug\netcoreapp2.1\NeoNftProject.TagHelpers.output.cache
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\obj\Debug\netcoreapp2.1\NeoNftProject.RazorCoreGenerate.cache
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.g.cshtml.cs
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.cshtml.cs
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\obj\Debug\netcoreapp2.1\NeoNftProject.RazorTargetAssemblyInfo.cache
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\obj\Debug\netcoreapp2.1\NeoNftProject.RazorTargetAssemblyInfo.cs
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\obj\Debug\netcoreapp2.1\NeoNftProject.Views.pdb
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\obj\Debug\netcoreapp2.1\NeoNftProject.dll
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\obj\Debug\netcoreapp2.1\NeoNftProject.pdb
+C:\Work\Git\neo\dorahacks-berlin-hackaton-xnft\NeoNftProject\NeoNftProject\obj\Debug\netcoreapp2.1\NeoNftProject.csproj.CopyComplete
