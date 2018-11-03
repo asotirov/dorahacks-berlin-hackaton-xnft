@@ -4,11 +4,6 @@ front-js/**/node_modules/
 front-js/ui/bower_components/
 front-js/**/.idea/workspace.xml
 
-NeoNftProject/NeoNftProject/ChainTestNet/
-NeoNftProject/.vs/NeoNftProject/v15/Server
-NeoNftProject/NeoNftProject/obj/
-NeoNftProject/NeoNftProject/bin/
-
 NeoNftProject/NeoNftProject/obj/x64/Debug/netcoreapp2.1/Razor/Views/Shared/_ValidationScriptsPartial.g.cshtml.cs
 NeoNftProject/NeoNftProject/obj/x64/Debug/netcoreapp2.1/Razor/Views/Shared/_Layout.g.cshtml.cs
 NeoNftProject/NeoNftProject/obj/x64/Debug/netcoreapp2.1/Razor/Views/Shared/_CookieConsentPartial.g.cshtml.cs
@@ -42,10 +37,12 @@ NeoNftProject/NeoNftProject/ChainTestNet/MANIFEST-000002
 NeoNftProject/NeoNftProject/ChainTestNet/LOG
 NeoNftProject/NeoNftProject/ChainTestNet/000003.log
 
-NeoNftProject/NeoNftProject/.vs
-NeoNftProject/NeoNftProject/ChainTestNet
-NeoNftProject/NeoNftProject/bin
-NeoNftProject/NeoNftProject/obj
+NeoNftProject/NeoNftProject/ChainTestNet/
+NeoNftProject/.vs/NeoNftProject/v15/Server
+NeoNftProject/NeoNftProject/obj/**
+NeoNftProject/NeoNftProject/bin/**
+NeoNftProject/NeoNftProject/.vs/**/*
+NeoNftProject/NeoNftProject/ChainTestNet/**/*
 NeoNftProject/NeoNftProject/ChainTestNet/CURRENT
 front-js/ui/.idea/vcs.xml
 front-js/ui/.idea/ui.iml

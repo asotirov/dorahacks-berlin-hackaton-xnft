@@ -5,15 +5,15 @@ const NeoJs_1 = require("../NeoJs");
 const _ = require("lodash");
 const aigle_1 = require("aigle");
 let neo = new NeoJs_1.default({
-    scriptHash: '577c60593353d5f91a2190f1db5d6fc7f3734164'
+    scriptHash: 'ae0e436c61d4568a0cb8c37997bcdc3cab99f6f2'
 });
 describe("NFT Tokens", function () {
     before(async () => {
         let result = await neo.get('totalSupply', []);
         if (result[0].value !== '02') {
             console.log('MINTING 2 TOKENS!!!');
-            await neo.call('mintToken', [neo.sc.ContractParam.byteArray(neo.config.myAddress, 'address'), 50, 50, 50, 50, 0]);
-            await neo.call('mintToken', [neo.sc.ContractParam.byteArray(neo.config.myAddress, 'address'), 70, 50, 40, 20, 0]);
+            await neo.call('mintToken', [neo.sc.ContractParam.byteArray(neo.config.myAddress, 'address'), 50, 50, 50, 50, 30, 30, 33, 33, 0]);
+            await neo.call('mintToken', [neo.sc.ContractParam.byteArray(neo.config.myAddress, 'address'), 70, 50, 40, 20, 51, 34, 56, 11, 0]);
         }
     });
     it('should return 02 balanceOf', async () => {
