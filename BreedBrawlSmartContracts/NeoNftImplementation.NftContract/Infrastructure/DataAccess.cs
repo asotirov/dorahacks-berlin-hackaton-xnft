@@ -89,14 +89,10 @@ namespace NeoNftImplementation.NftContract.Infrastructure
             byte[] key = Keys.Approval(tokenId);
             return Storage.Get(Storage.CurrentContext, key);            
         }
-   
-        public static void SetApprovedAddress(byte[] tokenId, byte[] address, BigInteger duration)
+
+        public static void SetApprovedAddress(byte[] tokenId, byte[] address)
         {
             byte[] key = Keys.Approval(tokenId);
-            TokenInfo token = GetToken(tokenId);
-            var nowtime = Blockchain.GetHeader(Blockchain.GetHeight()).Timestamp;
-            token.ApprovalExpiration = nowtime + duration;
-
             Storage.Put(Storage.CurrentContext, key, address);
         }
 
@@ -104,12 +100,6 @@ namespace NeoNftImplementation.NftContract.Infrastructure
         {
             byte[] bytes = Helper.Serialize(config);
             Storage.Put(Storage.CurrentContext, Keys.AttributeConfig, bytes);
-        }
-
-        public static void SetNextTokenOfOwner(byte[] owner, BigInteger index, BigInteger tokenId)
-        {
-            byte[] key = Keys.TokenOfOwner(owner, index);
-            Storage.Put(Storage.CurrentContext, key, tokenId);
         }
 
         public static void SetTotalSupply(byte[] totalSupply) =>
@@ -132,7 +122,7 @@ namespace NeoNftImplementation.NftContract.Infrastructure
             Storage.Put(Storage.CurrentContext, id, rawTransaction);
         }
 
-        public static BigInteger IncreaseAddressBalance(byte[] address)
+        public static void IncreaseAddressBalance(byte[] address)
         {
             byte[] key = Keys.AddressBalanceKey(address);
             byte[] currentBalanceBytes = Storage.Get(Storage.CurrentContext, key);
@@ -143,8 +133,7 @@ namespace NeoNftImplementation.NftContract.Infrastructure
             }
             
             currentBalance += 1;
-            Storage.Put(Storage.CurrentContext, key, currentBalance.AsByteArray());
-            return currentBalance;
+            Storage.Put(Storage.CurrentContext, address, currentBalance.AsByteArray());
         }
 
         public static void DecreaseAddressBalance(byte[] address)
