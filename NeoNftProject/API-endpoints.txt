@@ -227,7 +227,7 @@ Response // new token
     "auctions": []
 }
 
-POST http://localhost:5001/api/breed
+POST http://localhost:5001/api/battle
 
 Body:
 {
