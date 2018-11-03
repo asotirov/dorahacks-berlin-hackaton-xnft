@@ -1,5 +1,5 @@
-ui/dist/
-ui/temp/
-**/node_modules/
-ui/bower_components/
-**/.idea/workspace.xml
+front-js/**/dist/
+front-js/**/temp/
+front-js/**/node_modules/
+front-js/**/bower_components/
+front-js/**/.idea/workspace.xml
