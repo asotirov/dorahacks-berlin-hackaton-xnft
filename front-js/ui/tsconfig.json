@@ -1,22 +1,27 @@
 {
-  "compileOnSave": true,
-  "compilerOptions": {
-    "target": "es2017",
-    "typeRoots": [
-      "node_modules/@types"
+    "compileOnSave": true,
+    "compilerOptions": {
+        "target": "es2017",
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+        "moduleResolution": "node",
+        "module": "commonjs",
+        "declaration": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "strictNullChecks": true,
+        "lib": [
+            "es2015",
+            "es2017",
+            "es2015.promise"
+        ]
+    },
+    "exclude": [
+        "node_modules"
     ],
-    "moduleResolution": "node",
-    "module": "commonjs",
-    "declaration": true,
-    "removeComments": true,
-    "preserveConstEnums": true,
-    "sourceMap": true,
-    "strictNullChecks": true,
-    "lib": [
-      "es2017"
+    "include": [
+        "**/*.ts"
     ]
-  },
-  "include": [
-    "**/*.ts"
-  ]
 }
