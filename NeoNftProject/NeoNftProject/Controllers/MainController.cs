@@ -79,23 +79,20 @@ namespace NeoNftProject.Controllers
 			return this.Ok(id);
 		}
 
-        [HttpGet("battle")]
-        public IActionResult Battle(int player1, int player2)
+        [HttpPost("battle")]
+        public IActionResult Battle([FromBody]BattleInputModel model)
         {
-            BattleInputModel model = new BattleInputModel() { Player1 = player1, Player2 = player2 };
-
-            string[] moves = this.mainService.Battle(model);
+            var moves = this.mainService.Battle(model);
 
             return this.Ok(moves);
         }
 
         [HttpPost("breed")]
-        public IActionResult Breed(int player1, int player2)
+        public IActionResult Breed([FromBody]BreedInputModel model)
         {
-            BreedInputModel model = new BreedInputModel() { Player1 = player1, Player2 = player2 };
-  
-            Data.Token token = this.mainService.Breed(model);
-            return this.Ok(token);
+            var moves = this.mainService.Breed(model);
+
+            return this.Ok(moves);
         }
 
         [HttpPatch("token")]
