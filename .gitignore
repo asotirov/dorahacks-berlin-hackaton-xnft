@@ -39,8 +39,8 @@ NeoNftProject/NeoNftProject/ChainTestNet/000003.log
 
 NeoNftProject/NeoNftProject/ChainTestNet/
 NeoNftProject/.vs/NeoNftProject/v15/Server
-NeoNftProject/NeoNftProject/obj/**
-NeoNftProject/NeoNftProject/bin/**
+NeoNftProject/NeoNftProject/obj/
+NeoNftProject/NeoNftProject/bin/
 NeoNftProject/NeoNftProject/.vs/**/*
 NeoNftProject/NeoNftProject/ChainTestNet/**/*
 NeoNftProject/NeoNftProject/ChainTestNet/CURRENT
