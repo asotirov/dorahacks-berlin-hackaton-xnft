@@ -106,6 +106,12 @@ namespace NeoNftImplementation.NftContract.Infrastructure
             Storage.Put(Storage.CurrentContext, Keys.AttributeConfig, bytes);
         }
 
+        public static void SetNextTokenOfOwner(byte[] owner, BigInteger index, BigInteger tokenId)
+        {
+            byte[] key = Keys.TokenOfOwner(owner, index);
+            Storage.Put(Storage.CurrentContext, key, tokenId);
+        }
+
         public static void SetTotalSupply(byte[] totalSupply) =>
             Storage.Put(Storage.CurrentContext, Keys.KeyTotalSupply, totalSupply);
 
@@ -126,7 +132,7 @@ namespace NeoNftImplementation.NftContract.Infrastructure
             Storage.Put(Storage.CurrentContext, id, rawTransaction);
         }
 
-        public static void IncreaseAddressBalance(byte[] address)
+        public static BigInteger IncreaseAddressBalance(byte[] address)
         {
             byte[] key = Keys.AddressBalanceKey(address);
             byte[] currentBalanceBytes = Storage.Get(Storage.CurrentContext, key);
@@ -137,7 +143,8 @@ namespace NeoNftImplementation.NftContract.Infrastructure
             }
             
             currentBalance += 1;
-            Storage.Put(Storage.CurrentContext, address, currentBalance.AsByteArray());
+            Storage.Put(Storage.CurrentContext, key, currentBalance.AsByteArray());
+            return currentBalance;
         }
 
         public static void DecreaseAddressBalance(byte[] address)

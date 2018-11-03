@@ -12107,23 +12107,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Bogdan Alov\\.nuget\\packages\\": {},
+    "C:\\Users\\Anton\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bogdan Alov\\Desktop\\neo\\neo-NFT-contracts\\NeoNftProject\\NeoNftProject\\NeoNftProject.csproj",
+      "projectUniqueName": "C:\\Work\\Git\\neo\\dorahacks-berlin-hackaton-xnft\\NeoNftProject\\NeoNftProject\\NeoNftProject.csproj",
       "projectName": "NeoNftProject",
-      "projectPath": "C:\\Users\\Bogdan Alov\\Desktop\\neo\\neo-NFT-contracts\\NeoNftProject\\NeoNftProject\\NeoNftProject.csproj",
-      "packagesPath": "C:\\Users\\Bogdan Alov\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bogdan Alov\\Desktop\\neo\\neo-NFT-contracts\\NeoNftProject\\NeoNftProject\\obj\\",
+      "projectPath": "C:\\Work\\Git\\neo\\dorahacks-berlin-hackaton-xnft\\NeoNftProject\\NeoNftProject\\NeoNftProject.csproj",
+      "packagesPath": "C:\\Users\\Anton\\.nuget\\packages\\",
+      "outputPath": "C:\\Work\\Git\\neo\\dorahacks-berlin-hackaton-xnft\\NeoNftProject\\NeoNftProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Bogdan Alov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Anton\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

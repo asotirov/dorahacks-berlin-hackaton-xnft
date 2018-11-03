@@ -2,10 +2,10 @@ import * as expect from "expect";
 import NeoJs from "../NeoJs";
 
 let neo = new NeoJs({
-    scriptHash: 'e68cb21b3c7d2453b06164e97d9935a6381ec100' //token expiration #31.10.18/21:55
+    scriptHash: '5b8de0bb6790c711080a43c5ee9f1945f61210ca' //nft #03.11.18 15:36
 });
 
-describe("Token Expiration", function () {
+describe("NFT Tokens", function () {
     before(async () => {
         // let result = await neo.call('mintToken', [neo.sc.ContractParam.byteArray(neo.config.myAddress, 'address')]);
     });
@@ -16,10 +16,6 @@ describe("Token Expiration", function () {
     it('should return 01 totalSupply', async () => {
         let result = await neo.get('totalSupply', [neo.sc.ContractParam.byteArray(neo.config.myAddress, 'address')]);
         expect(result[0].value).toEqual('01');
-    });
-    it('should not have active Lend on fresh token', async () => {
-        let result = await neo.get('isLendActive', [neo.sc.ContractParam.byteArray(neo.config.myAddress, 'address')]);
-        console.log('lend', result);
     });
     it('should return tokens of owner', async () => {
         let result = await neo.get('tokensOfOwner', [neo.sc.ContractParam.byteArray(neo.config.myAddress, 'address')]);

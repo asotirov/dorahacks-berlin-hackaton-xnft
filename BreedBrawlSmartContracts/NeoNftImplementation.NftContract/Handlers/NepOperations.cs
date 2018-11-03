@@ -43,9 +43,7 @@ namespace NeoNftImplementation.NftContract.Handlers
             }
             else if (operation == "ownerOf")
             {
-                BigInteger tokenId = (BigInteger)args[0];
-
-                result.Value = NepOperations.OwnerOf(tokenId);
+                result.Value = NepOperations.OwnerOf((byte[])args[0]);
             }
             else if (operation == "tokenURI")
             {
@@ -142,9 +140,9 @@ namespace NeoNftImplementation.NftContract.Handlers
         /// <summary>
         /// Get the token owner address
         /// </summary>
-        private static byte[] OwnerOf(BigInteger tokenId)
+        private static byte[] OwnerOf(byte[] tokenIdAsByteArray)
         {
-            var token = DataAccess.GetToken(tokenId.AsByteArray());
+            var token = DataAccess.GetToken(tokenIdAsByteArray);
             if (token != null && token.Owner.Length > 0)
             {
                 return token.Owner;
@@ -156,7 +154,7 @@ namespace NeoNftImplementation.NftContract.Handlers
         }
 
         /// <summary>
-        /// Get all gladiator ids owned by an address, not currently supported
+        /// Get all token ids owned by an address
         /// </summary>
         private static BigInteger[] TokensOfOwner(byte[] owner)
         {
@@ -197,7 +195,7 @@ namespace NeoNftImplementation.NftContract.Handlers
                 return 0;
             }
 
-            //Determine whether the total amount is exceeded
+            //TODO: Determine whether the total amount is exceeded
             byte[] tokenaId = Storage.Get(Storage.CurrentContext, Keys.KeyAllSupply);
 
             byte[] tokenId = DataAccess.GetTotalSupplyAsBytes();
@@ -219,12 +217,11 @@ namespace NeoNftImplementation.NftContract.Handlers
             token.AttackSpeed = attackSpeed;
             token.CriticalStrike = criticalStrike;
 
-
-
             DataAccess.SetToken(tokenId, token);
             DataAccess.SetTotalSupply(tokenId);
-            DataAccess.IncreaseAddressBalance(owner);
-            
+            BigInteger index = DataAccess.IncreaseAddressBalance(owner);
+            DataAccess.SetNextTokenOfOwner(owner, index, nextTokenId);
+
             Events.RaiseBirthed(
                 tokenId.AsBigInteger(), token.Owner, token.Agility, token.AttackSpeed,
                 token.CriticalStrike, token.CanBreedAfter, token.CloneWithId, token.BirthTime, 
