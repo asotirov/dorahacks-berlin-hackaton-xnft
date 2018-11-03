@@ -3,3 +3,8 @@ front-js/**/temp/
 front-js/**/node_modules/
 front-js/ui/bower_components/
 front-js/**/.idea/workspace.xml
+
+NeoNftProject/NeoNftProject/ChainTestNet/
+NeoNftProject/NeoNftProject/.vs/NeoNftProject/v15/Server
+NeoNftProject/NeoNftProject/obj/
+NeoNftProject/NeoNftProject/bin/
