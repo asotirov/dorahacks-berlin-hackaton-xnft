@@ -138,8 +138,8 @@ namespace NeoNftProject.Services
             Token newToken = this.Breed(firstToken, secondToken);
             newToken.AddressId = firstToken.AddressId;
 
-            db.Add(newToken);
-            db.SaveChanges();
+            //db.Add(newToken);
+            //db.SaveChanges();
 
             return newToken;
         }
